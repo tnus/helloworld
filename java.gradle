@@ -1,0 +1,49 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+apply plugin: 'pmd'
+//apply plugin: 'findbugs'
+//apply plugin: 'checkstyle'
+apply plugin: 'jacoco'
+
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task testJar(type: Jar) {
+    classifier = 'tests'
+    from sourceSets.test.output
+}
+
+task testSourcesJar(type: Jar, dependsOn: testJar) {
+    classifier = 'test-sources'
+    from sourceSets.test.allSource
+}
+
+task testJavadoc(type: Javadoc) {
+  source = sourceSets.test.allJava
+  classpath = sourceSets.test.compileClasspath
+  // if not changed the destinationDir, the javadoc for production code is overridden.
+  destinationDir = file("${buildDir}/docs/testjavadoc")
+}
+
+task testJavadocJar(type: Jar, dependsOn: testJavadoc) {
+    classifier = 'test-javadoc'
+    from testJavadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+    archives testJar
+    archives testJavadocJar
+    archives testSourcesJar
+}
