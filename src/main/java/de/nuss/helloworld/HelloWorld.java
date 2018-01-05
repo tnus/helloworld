@@ -9,13 +9,12 @@ package de.nuss.helloworld;
 public class HelloWorld {
 
 	/**
-	 * Runs the application.
+	 * Can be used to return a string.
 	 * 
-	 * @param args
-	 *            No arguments are supported!
+	 * @return Returns the String hello World
 	 */
-	public static void main(final String[] args) {
-		System.out.println("Hello World!");
+	public final String sayHello() {
+		return "Hello World!";
 	}
 
 }

@@ -22,6 +22,11 @@ task testSourcesJar(type: Jar, dependsOn: testJar) {
     from sourceSets.test.allSource
 }
 
+task Javadoc(type: Javadoc) {        
+    failOnError = false
+}
+
+
 task testJavadoc(type: Javadoc) {
   source = sourceSets.test.allJava
   classpath = sourceSets.test.compileClasspath
