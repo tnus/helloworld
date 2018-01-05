@@ -1,4 +1,22 @@
+buildscript {
+    repositories { 
+    	jcenter()
+        mavenLocal()
+    }
+	dependencies {
+		 		classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.7"
+		        classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.15'        
+		         // needed to upload the binaries to the bintray repository
+//    			classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }	 
+}   
+
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+}
+
 apply from: 'java.gradle'
+apply from: 'bintray.gradle'
 
 //apply plugin: 'java'
 //apply plugin: 'eclipse'
@@ -9,47 +27,10 @@ apply from: 'java.gradle'
 ////apply plugin: 'checkstyle'
 //apply plugin: 'jacoco'
 
-apply plugin: 'com.jfrog.bintray'
 
 version = '0.0.1-SNAPSHOT'
 group = 'de.nuss.helloworld'
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'helloworld'
-
-    publishedGroupId = 'de.nuss.helloworld'
-    libraryName = 'HelloWorld'
-    artifact = 'helloworld'
-
-    libraryDescription = 'A simple helloworld project'
-
-    siteUrl = 'https://github.com/tnus/helloworld'
-    gitUrl = 'https://github.com/tnus/helloworld.git'
-
-    libraryVersion = '0.0.1-SNAPSHOT'
-
-    developerId = 'tnus'
-    developerName = 'Thorsten Nuß'
-    developerEmail = 'thorsten.nuss@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
-buildscript {
-    repositories { 
-    	jcenter()
-        mavenLocal()
-    }
-	dependencies {
-		 		classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.7"
-		        classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.15'        
-		         // needed to upload the binaries to the bintray repository
-    			classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
-    }	 
-}    
 
 repositories {
     jcenter()
@@ -70,33 +51,3 @@ dependencies {
 //        html.destination file("${buildDir}/reports/jacocoHtml")
 //    }
 //}
-
-
-// Bintray
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-//
-//    configurations = ['archives']
-//    pkg {
-//        repo = bintrayRepo
-//        name = bintrayName
-//        desc = libraryDescription
-//        websiteUrl = siteUrl
-//        vcsUrl = gitUrl
-//        licenses = allLicenses
-//        publish = true
-//        publicDownloadNumbers = true
-//        version {
-//            desc = libraryDescription
-//            gpg {
-//                sign = true //Determines whether to GPG sign the files. The default is false
-//                passphrase = properties.getProperty("bintray.gpg.password")
-//                //Optional. The passphrase for GPG signing'
-//            }
-//        }
-//    }
-}
