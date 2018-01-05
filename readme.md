@@ -15,3 +15,5 @@ gradlew bintrayUpload uploads the artifacts to bintray
 gradlew jacocoTestReport runs the test coverage report
 
 gradle asciidoctor to run the documentation
+
+gradle build --dry-run --profile just measures the time

@@ -1,7 +1,9 @@
-= Hello World Application
-Thorsten Nuß <thorsten.nuss@gmail.com>
+Hello World Application
+=======================
+:Author:    Thorsten Nuß
+:Email:     <thorsten.nuss@gmail.com>
+:revdate:   {docdate} {doctime}
 :revnumber: {project-version}
-:revdate: @timestamp@
 
 include::overview.adoc[leveloffset=+1]
 // Page break
