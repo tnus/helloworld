@@ -1,4 +1,5 @@
 def gitVersion() {
+  println "calculated git version"
 //  if (!System.getenv('CI_BUILD')) {
 //    // don't care
 //    return 1
@@ -21,5 +22,5 @@ task buildAll(type: GradleBuild) {
 }
 
 task gitVersion() {
-	println gitVersion()         
+//	println "current gitVersion is: " + gitVersion()         
 }
