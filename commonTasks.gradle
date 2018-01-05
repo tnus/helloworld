@@ -1,0 +1,25 @@
+def gitVersion() {
+//  if (!System.getenv('CI_BUILD')) {
+//    // don't care
+//    return 1
+//  }
+  def cmd = 'git rev-list HEAD --first-parent --count'
+  cmd.execute().text.trim().toInteger()
+}
+
+
+task cleanBuildPublish(type: GradleBuild) {
+ 	group 'Helper Tasks'
+	description 'Performs a clean build' 
+    tasks = ['clean', 'build', 'publish']
+}
+
+task buildAll(type: GradleBuild) {
+	group 'Helper Tasks'
+	description 'Performs a build including the documentation'
+    tasks = ['build', 'asciidoc']
+}
+
+task gitVersion() {
+	println gitVersion()         
+}

@@ -1,0 +1,9 @@
+= Hello World Application
+Thorsten Nuß <thorsten.nuss@gmail.com>
+:revnumber: {project-version}
+:revdate: @timestamp@
+
+include::overview.adoc[leveloffset=+1]
+// Page break
+<<<
+include::qa.adoc[leveloffset=+1]

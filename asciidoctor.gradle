@@ -1,0 +1,17 @@
+apply plugin: 'org.asciidoctor.convert'
+
+asciidoctor {
+    backends 'html', 'pdf'
+    sources {
+        include 'manual.adoc' 
+    }
+    outputDir file('build/docs/asciidoc') 
+    attributes \
+        'toc': 'left',
+        'header_footer': true,
+        'setanchors': '',
+        'idprefix': '',
+        'idseparator': '-'
+}
+
+//assemble.dependsOn asciidoctor

@@ -1,0 +1,7 @@
+= Q&A
+
+[qanda]
+How to build the software?::
+  The application can be build with gradle build.
+How to upload the artifacts to bintray?:: 
+  Run gradle bintrayUpload

@@ -30,9 +30,12 @@ publishing {
             from components.java
             artifact sourcesJar
             artifact javadocJar
+			artifact testJar
+		    artifact testJavadocJar
+		    artifact testSourcesJar            
             groupId 'de.nuss.helloworld'
             artifactId 'helloworld'
-            version '1.0.0-SNAPSHOT'
+            version '0.0.1'
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'Simple Hello World Application')
@@ -66,7 +69,7 @@ bintray {
 	    vcsUrl = 'https://github.com/tnus/helloworld.git'
 	    
 	    version {
-			name = '1.0.0-SNAPSHOT'	        
+			name = '0.0.1'	        
 			released  = new Date()
 //			vcsTag = '1.3.0'
 	    }

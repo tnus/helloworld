@@ -18,16 +18,8 @@ plugins {
 apply from: 'java.gradle'
 apply from: 'quality.gradle'
 apply from: 'bintray.gradle'
-
-//apply plugin: 'java'
-//apply plugin: 'eclipse'
-//apply plugin: 'maven'
-
-//apply plugin: 'pmd'
-////apply plugin: 'findbugs'
-////apply plugin: 'checkstyle'
-//apply plugin: 'jacoco'
-
+apply from: 'asciidoctor.gradle'
+apply from: 'commonTasks.gradle'
 
 version = '0.0.1-SNAPSHOT'
 group = 'de.nuss.helloworld'
@@ -44,11 +36,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-// Define the code coverage report
-//jacocoTestReport {
-//    reports {
-//        xml.enabled false
-//        csv.enabled false
-//        html.destination file("${buildDir}/reports/jacocoHtml")
-//    }
-//}
+// run the documentation as last build step
+//build.finalizedBy(asciidoctor)
