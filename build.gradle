@@ -16,6 +16,7 @@ plugins {
 }
 
 apply from: 'java.gradle'
+apply from: 'quality.gradle'
 apply from: 'bintray.gradle'
 
 //apply plugin: 'java'

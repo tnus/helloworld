@@ -4,7 +4,7 @@ Build the project with
 
 gradlew build
 
-A file local.properties with the following content must be provided to upload the artifacts to the bintray repository
+The following properties should be added to the gradle.properties file in the user home directory
 
 bintray.user=YOUR_BINTRAY_USERNAME
 bintray.apikey=YOUR_BINTRAY_API_KEY
